@@ -9,14 +9,18 @@ jobs:
     name: Build Electron App (${{ matrix.os }})
     runs-on: ${{ matrix.os }}
     strategy:
+      fail-fast: false
       matrix:
         include:
           - os: ubuntu-latest
             build_script: build:linux
+            upload_pattern: 'dist/*.AppImage'
           - os: macos-latest
             build_script: build:mac
+            upload_pattern: 'dist/*.dmg'
           - os: windows-latest
             build_script: build:win
+            upload_pattern: 'dist/*.exe'
 
     steps:
       - name: Checkout source code
@@ -36,9 +40,6 @@ jobs:
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
         with:
-          files: |
-            dist/*.dmg
-            dist/*.exe
-            dist/*.AppImage
+          files: ${{ matrix.upload_pattern }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
