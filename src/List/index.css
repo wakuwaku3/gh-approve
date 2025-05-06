@@ -1,0 +1,130 @@
+.pull-request-list {
+  width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 2rem;
+  font-family: inherit;
+  color: inherit;
+}
+
+.pull-request-header,
+.pull-request-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.5rem;
+}
+
+.header-checkbox,
+.row-checkbox {
+  margin-top: 0.25rem;
+}
+
+.header-title,
+.header-date,
+.header-labels,
+.pr-title,
+.pr-date,
+.pr-labels {
+  text-align: left;
+}
+
+.header-title,
+.pr-title {
+  flex: 3;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.header-date,
+.pr-date {
+  flex: 1;
+}
+
+.header-labels,
+.pr-labels {
+  flex: 2;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.pr-title {
+  min-width: 0;
+}
+
+.repository-name {
+  text-align: left;
+  margin-bottom: 1rem;
+}
+
+.filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  align-items: center;
+}
+
+.filter-input {
+  flex: 2;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #000;
+}
+
+.filter-select {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #000;
+  height: 6rem; /* 複数選択対応のため高さを確保 */
+}
+
+@media (prefers-color-scheme: dark) {
+  .filter-input,
+  .filter-select {
+    background-color: #333;
+    border: 1px solid #555;
+    color: #fff;
+  }
+}
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.approve-button {
+  padding: 0.6rem 1.2rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 6px;
+  border: none;
+  background-color: #4caf50;
+  color: white;
+  cursor: pointer;
+  transition: background-color 0.2s ease, transform 0.05s ease;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.approve-button:hover {
+  background-color: #45a049;
+}
+
+.approve-button:active {
+  transform: scale(0.96);
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.approve-button:disabled {
+  background-color: #a5d6a7;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
