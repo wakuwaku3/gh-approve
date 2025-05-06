@@ -33,7 +33,6 @@ jobs:
       - name: Build Electron app
         run: npm run ${{ matrix.build_script }}
 
-      # 成果物のパスを正しく設定してください（例: dist フォルダ内など）
       - name: Upload release assets
         uses: softprops/action-gh-release@v2
         with:
